@@ -10,6 +10,7 @@ Channel
 
 
 process sci {
+    echo 'true'
     
     input:
     file(infile) from ch_infile
@@ -20,13 +21,13 @@ process sci {
 
     script:
     """
-    python2.7 -m sci/sci/sci \
-        --name 
-        --infile $infile
-        --genome_size $genome_size
-        --resolution $params.resolution
-        --order $params.order
-        --samples $params.samples
+    python2.7 /sci/sci/sci.py \
+        --name $params.name \
+        --infile $infile \
+        --genome_size $genome_size \
+        --resolution $params.resolution \
+        --order $params.order \
+        --samples $params.samples \
         --clusters $params.clusters
     """
 }
