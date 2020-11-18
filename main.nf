@@ -21,6 +21,8 @@ process sci {
 
     script:
     """
+    echo $task.cpus
+    echo $task.memory
     python2.7 /sci/sci/sci.py \
         --name $params.name \
         --infile $infile \

@@ -26,7 +26,8 @@ ENV JUICERTOOLS /juicer/scripts/common/juicer_tools.jar
 RUN git clone https://github.com/TheJacksonLaboratory/sci && \
     chmod +x sci/scripts* && \
     sed -i -e '0,/\.hic/ s/\.hic/hic/' sci/sci/sci.py && \
-    sed -i -e '0,/\.Compartments/ s/\.Compartments/Compartments/' sci/sci/sci.py
+    sed -i -e '0,/\.Compartments/ s/\.Compartments/Compartments/' sci/sci/sci.py && \
+    sed -i -e 's/shell=False/shell=True/' sci/sci/utils.py
 
 ENV PATH sci/scripts:$PATH
 ENV PATH sci/sci:$PATH
